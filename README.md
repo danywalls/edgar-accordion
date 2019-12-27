@@ -4,7 +4,7 @@
 ---  
 # edgar-accordion
   
-This is a project using [WebComponents](https://developer.mozilla.org/en-US/docs/Web/Web_Components) . You can see full source code at https://github.com/danywalls/edgar-accordion.  
+This project was build project using [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components) . You can see full source code at https://github.com/danywalls/edgar-accordion.  
   
 *Note that you will need to have [Node.js](https://nodejs.org) installed.*  
    
