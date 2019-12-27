@@ -1,0 +1,62 @@
+@import "base";
+
+.accordion {
+  font-family: $base-font-family;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: $default-white;
+  -webkit-box-shadow: 0 10px 6px -6px $ligth-gray;
+  -moz-box-shadow: 0 10px 6px -6px $ligth-gray;
+  box-shadow: 0 10px 6px -6px $ligth-gray;
+  width: 40%;
+}
+
+dt {
+  margin: auto;
+}
+
+@media only screen and (max-width: 620px) {
+  .accordion {
+    width: 90%;
+  }
+}
+
+.accordion__title {
+  display: block;
+  padding: 15px;
+  border-bottom: 2px solid $ligth-pink;
+  cursor: pointer;
+  background-color: $slack-purple-dark;
+  text-align: left;
+  transition: background-color 0.4s;
+  font-weight: $bold;
+
+}
+
+.accordion__title--open {
+  background-color: $slack-purple-ligth;
+}
+
+.accordion__content {
+  overflow: hidden;
+  margin-left: 0px;
+  padding: 0 15px;
+  background-color: $blue-soft;
+  transition: height 0.3s, background-color 2s;
+  animation: 3s linear;
+  height: 0;
+  p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.accordion__content--open {
+  height: 45px;
+  background: $blue-soft-ligth;
+}
+
+

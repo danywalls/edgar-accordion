@@ -1,0 +1,11 @@
+@import "base";
+
+body {
+  background-color: $background-page;
+  text-align: center;
+  font-family: $base-font-family;
+}
+
+h1 {
+  color: $ligth-gray;
+}

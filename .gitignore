@@ -106,3 +106,9 @@ dist
 
 # TernJS port file
 .tern-port
+src/scss/_accordion.css
+src/scss/_accordion.css.map
+package-lock.json
+src/scss/main.css
+src/scss/main.css.map
+src/scss/.sass-cache/
