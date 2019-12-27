@@ -18,7 +18,6 @@ const uitemplate = `
 `;
 
 import css from '../scss/_accordion.scss';
-
 import {NORRIS_API} from './norrisAPI';
 
 class Accordion extends HTMLElement {
