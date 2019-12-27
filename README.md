@@ -1,5 +1,5 @@
 
-*Looking for demo ? Go here --> [danywalls.github.io](danywalls.github.io)*  
+*Looking for demo ? Go here --> [danywalls.github.io](http://danywalls.github.io)*  
   
 ---  
 # edgar-accordion
