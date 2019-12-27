@@ -25,11 +25,11 @@ The support for *async* and *await* is required .babelrc "@babel/plugin-transfor
 npm run dev  
 ```  
 
-Navigate to [localhost:1234](http://localhost:1234. You should edgar accordion running. 
+Navigate to [localhost:1234](http://localhost:1234). You should edgar accordion running. 
   
 ## Building and running in production mode  
   
-To create an optimised version of the app:  
+To create an dist and build version of the app:  
   
 ```bash  
 npm run prod  
