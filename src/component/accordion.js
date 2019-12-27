@@ -97,7 +97,7 @@ class Accordion extends HTMLElement {
         const model = this._getSectionModel(content);
         let response = this._mergeTemplateInSection(model);
         this.lastElement.insertAdjacentHTML('afterend',response);
-        let  a = document.querySelector('dd:last-child');        
+            
         this._registerOnClickEvent(this.lastElement.previousSibling.previousElementSibling,this.sectionID);
     }
 
