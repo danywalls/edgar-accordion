@@ -4,8 +4,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "parcel src/*.html",
-    "prod": "rimraf ./dist && parcel build src/index.html --out-dir dist/",
-    "deploy": "gh-pages -d dist"
+    "prod": "rimraf ./dist && parcel build src/index.html --out-dir dist/"
   },
   "repository": {
     "type": "git",
@@ -21,7 +20,6 @@
   "devDependencies": {
     "@babel/core": "^7.7.7",
     "@babel/plugin-transform-runtime": "^7.7.6",
-    "gh-pages": "^2.1.1",
     "parcel-bundler": "^1.12.4",
     "rimraf": "^3.0.0",
     "sass": "^1.24.0"
