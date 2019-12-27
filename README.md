@@ -17,7 +17,7 @@ cd edgar-accordion
 npm install  
 ```  
   
-I'm using [Parcel](https://parceljs.org) as bundler, it allow hotreload and easy way to compiles es6 and sass files:   
+I'm using [Parcel](https://parceljs.org) as bundler, it allows hotreload and an easy way to compile es6 and sass files:   
 
 The support for *async* and *await* is required .babelrc "@babel/plugin-transform-runtime".
   
