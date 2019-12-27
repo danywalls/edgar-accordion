@@ -1,5 +1,5 @@
 
-*looking for a demo accordion ? Go here --> [https://danywalls.github.io/edgar-accordion/](https://danywalls.github.io/edgar-accordion/)*  
+*Looking for demo ? Go here --> [danywalls.github.io](danywalls.github.io)*  
   
 ---  
 # edgar-accordion
@@ -25,15 +25,16 @@ The support for *async* and *await* is required .babelrc "@babel/plugin-transfor
 npm run dev  
 ```  
 
-Navigate to [localhost:1234](http://localhost:1234). You should edgar accordion running. 
+Navigate to [localhost:1234](http://localhost:1234) and you should see the app running. 
   
 ## Building and running in production mode  
   
-To create an dist and build version of the app:  
+To create an dist version:  
   
 ```bash  
 npm run prod  
 ```  
   
 The dist directory will contain all files related with the app, ready to be deployed.  
-  
+
+Thanks!
