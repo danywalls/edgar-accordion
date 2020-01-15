@@ -27,13 +27,18 @@ class Accordion extends HTMLElement {
     return [
       {
         sectionID: Math.random(),
-        title: "Section 1",
-        content: "Content 1"
+        title: "how to write to mobile first css",
+        content: "https://zellwk.com/blog/how-to-write-mobile-first-css/"
       },
       {
         sectionID: Math.random(),
-        title: "Section 1",
-        content: "Content 1"
+        title: "Promises Basic",
+        content: "https://javascript.info/promise-basics"
+      },
+      {
+        sectionID: Math.random(),
+        title: "Thanks",
+        content: "Thanks for you time"
       }
     ];
   }
@@ -82,7 +87,7 @@ class Accordion extends HTMLElement {
   _getSectionModel(response) {
     return {
       sectionID: response.sectionID ? response.sectionID : Math.random(),
-      title: response.title ? response.title : "Sabias que ? ",
+      title: response.title ? response.title : "Did you know? ",
       content: response.content ? response.content : response.value
     };
   }
