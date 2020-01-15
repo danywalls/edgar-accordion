@@ -1,6 +1,10 @@
 @import "base";
 
 .accordion {
+  @media only screen and (max-width: 620px) {
+    width: 90%;
+    top: 40%;
+  }
   font-family: $base-font-family;
   position: absolute;
   top: 30%;
@@ -17,13 +21,6 @@ dt {
   margin: auto;
 }
 
-@media only screen and (max-width: 620px) {
-  .accordion {
-    width: 90%;
-    top: 40%;
-  }
-}
-
 .accordion__title {
   display: block;
   padding: 15px;
@@ -33,7 +30,6 @@ dt {
   text-align: left;
   transition: background-color 0.4s;
   font-weight: $bold;
-
 }
 
 .accordion__title--open {
@@ -59,5 +55,3 @@ dt {
   height: 45px;
   background: $blue-soft-ligth;
 }
-
-
