@@ -5,7 +5,7 @@ class Accordion extends HTMLElement {
   constructor() {
     super();
     this.innerHTML = this.template;
-    this._addToggleBehavior();
+    this._bindItems();
   }
 
   get template() {
@@ -43,16 +43,16 @@ class Accordion extends HTMLElement {
     ];
   }
 
-  _registerOnClickEvent(model) {
-    let sectionDOM = this._getDtById(model);
+  _addClickEvent(elementId) {
+    let section = this._getSectionById(elementId);
 
-    sectionDOM.addEventListener("click", () => {
-      this._closeOpenedItems(model);
-      this._openSection(sectionDOM);
+    section.addEventListener("click", () => {
+      this._closeOpenItems(elementId);
+      this._openSection(section);
     });
   }
 
-  _addToggleBehavior() {
+  _bindItems() {
     this.items.forEach(item => {
       this._addContent(item);
     });
@@ -65,7 +65,7 @@ class Accordion extends HTMLElement {
     content.classList.toggle("accordion__content--open");
   }
 
-  _closeOpenedItems(id) {
+  _closeOpenItems(id) {
     this.dts.forEach(item => {
       if (item.id !== id) {
         item.classList.remove("accordion__title--open");
@@ -74,17 +74,17 @@ class Accordion extends HTMLElement {
     });
   }
 
-  _addContent(content) {
-    const model = this._getSectionModel(content);
-    const section = this._mergeTemplateInSection(model);
+  _addContent(item) {
+    const model = this._getModel(item);
+    const section = this._mergeModelOnTemplate(model);
     this.dl.insertAdjacentHTML("afterend", section);
-    this._registerOnClickEvent(model.sectionID);
+    this._addClickEvent(model.sectionID);
   }
 
-  _getDtById(id) {
+  _getSectionById(id) {
     return document.getElementById(id);
   }
-  _getSectionModel(response) {
+  _getModel(response) {
     return {
       sectionID: response.sectionID ? response.sectionID : Math.random(),
       title: response.title ? response.title : "Did you know? ",
@@ -92,7 +92,7 @@ class Accordion extends HTMLElement {
     };
   }
 
-  _mergeTemplateInSection(section) {
+  _mergeModelOnTemplate(section) {
     return `<dt id='${section.sectionID}' class='accordion__title'>${section.title}</dt>
                 <dd class="accordion__content">
                 <p>${section.content}</p>

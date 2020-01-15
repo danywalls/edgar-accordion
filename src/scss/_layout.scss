@@ -1,14 +1,11 @@
 @import "base";
-
-body {
-  font-family: $base-font-family;
-}
-
 .container {
+  font-family: $base-font-family;
   height: 100%;
   text-align: center;
   background-color: lightcoral;
   > h1 {
+    margin: 0;
     padding-top: 30px;
     color: palegreen;
   }
