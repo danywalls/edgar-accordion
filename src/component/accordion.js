@@ -1,4 +1,15 @@
-const uitemplate = `
+import "../scss/_accordion.scss";
+import { NORRIS_API } from "./norrisAPI";
+
+class Accordion extends HTMLElement {
+  constructor() {
+    super();
+    this.innerHTML = this.template;
+    this._addToggleBehavior();
+  }
+
+  get template() {
+    return `
 <div class="accordion">
 <dl>
      <dt>Section 1</dt>
@@ -16,105 +27,94 @@ const uitemplate = `
  </dl>
  </div>
 `;
+  }
 
-import css from '../scss/_accordion.scss';
-import {NORRIS_API} from './norrisAPI';
+  get dts() {
+    return document.querySelectorAll("dt");
+  }
 
-class Accordion extends HTMLElement {
-    constructor() {
-        super();
-        this.innerHTML = this.template;
-        this._addToggleBehavior();
+  get dds() {
+    return document.querySelectorAll("dd");
+  }
+
+  get lastElement() {
+    return document.querySelector("dd:last-child");
+  }
+
+  get sectionID() {
+    return (
+      parseInt(this.lastElement.previousSibling.previousElementSibling.id) + 1
+    );
+  }
+
+  _registerOnClickEvent(item, id) {
+    item.id = id;
+    item.addEventListener("click", () => {
+      this._closeOpenedItems(item.id);
+      item.classList.add("accordion__title--open");
+      this._handleRelatedContend(item);
+    });
+  }
+
+  _addToggleBehavior() {
+    this.dts.forEach((item, index) => {
+      item.classList.add("accordion__title");
+      this._registerOnClickEvent(item, index);
+    });
+
+    this.dds.forEach((item, index) => {
+      item.classList.add("accordion__content");
+    });
+    NORRIS_API.getChuckNorris().then(data => {
+      this._addExtraContent(data);
+    });
+  }
+
+  _handleRelatedContend(item) {
+    const content = item.nextElementSibling;
+    if (this._isContentOpen(item)) {
+      content.classList.toggle("accordion__content--open");
     }
+  }
 
-    get dts() {
-        return document.querySelectorAll('dt');
-    }
+  _isContentOpen(item) {
+    return item.classList.contains("accordion__title--open");
+  }
 
-    get dds() {
-        return document.querySelectorAll('dd');
-    }
+  _closeOpenedItems(id) {
+    this.dts.forEach(item => {
+      if (item.id !== id) {
+        item.classList.remove("accordion__title--open");
+        item.nextElementSibling.classList.remove("accordion__content--open");
+      }
+    });
+  }
 
-    get lastElement() {
-        return document.querySelector('dd:last-child')
-    }
+  _addExtraContent(content) {
+    const model = this._getSectionModel(content);
+    let response = this._mergeTemplateInSection(model);
+    this.lastElement.insertAdjacentHTML("afterend", response);
 
-    get template() {
-        return uitemplate;
-    }
+    this._registerOnClickEvent(
+      this.lastElement.previousSibling.previousElementSibling,
+      this.sectionID
+    );
+  }
 
-    get sectionID(){
-        return parseInt(this.lastElement.previousSibling.previousElementSibling.id) + 1
-    }
+  _getSectionModel(response) {
+    return {
+      title: "Sabias que ?",
+      content: response.value
+    };
+  }
 
-    _registerOnClickEvent(item, id){
-        item.id = id;
-        item.addEventListener('click', () => {
-            this._closeOpenedItems(item.id)
-            item.classList.add('accordion__title--open');
-            this._handleRelatedContend(item);
-        })
-    }
-
-
-    _addToggleBehavior() {
-        this.dts.forEach((item, index) => {
-            item.classList.add('accordion__title');
-            this._registerOnClickEvent(item, index);
-        });
-
-        this.dds.forEach((item, index) => {
-            item.classList.add('accordion__content')
-        })
-        NORRIS_API.getChuckNorris().then((data) => {
-            this._addExtraContent(data);
-        })
-
-    }
-
-    _handleRelatedContend(item) {
-        const content = item.nextElementSibling;
-        if (this._isContentOpen(item)) {
-            content.classList.toggle('accordion__content--open');
-        }
-    }
-
-    _isContentOpen(item) {
-        return item.classList.contains('accordion__title--open')
-    }
-
-    _closeOpenedItems(id) {
-        this.dts.forEach((item) => {
-            if (item.id !== id) {
-                item.classList.remove('accordion__title--open');
-                item.nextElementSibling.classList.remove('accordion__content--open')
-            }
-        })
-    }
-    
-    _addExtraContent(content){
-        const model = this._getSectionModel(content);
-        let response = this._mergeTemplateInSection(model);
-        this.lastElement.insertAdjacentHTML('afterend',response);
-            
-        this._registerOnClickEvent(this.lastElement.previousSibling.previousElementSibling,this.sectionID);
-    }
-
-    _getSectionModel(response){
-        return {
-            title: "Sabias que ?",
-            content: response.value
-        }
-    }
-
-    _mergeTemplateInSection(section){
-        return `<dt id=${this.sectionID} class='accordion__title'>${section.title}</dt>
+  _mergeTemplateInSection(section) {
+    return `<dt id=${this.sectionID} class='accordion__title'>${section.title}</dt>
                 <dd class="accordion__content">
                 <p>${section.content}</p>
                 </dd>
                 `;
-    }
-
+  }
 }
 
-window.customElements.define('edgar-accordion', Accordion);
+window.customElements.define("edgar-accordion", Accordion);
