@@ -11,74 +11,54 @@ class Accordion extends HTMLElement {
   get template() {
     return `
 <div class="accordion">
-<dl>
-     <dt>Section 1</dt>
-     <dd>
-        <p>Section 1 Content...</p>
-     </dd>
-     <dt>Section 2</dt>
-        <dd>
-        <p>Section 2 Content...</p>
-        </dd>
-     <dt>Section 3</dt>
-     <dd>
-        <p>Section 3 Content...</p>
-     </dd>
- </dl>
+    <dl>
+    </dl>
  </div>
 `;
   }
-
+  get dl() {
+    return document.querySelector("dl");
+  }
   get dts() {
     return document.querySelectorAll("dt");
   }
 
-  get dds() {
-    return document.querySelectorAll("dd");
+  get items() {
+    return [
+      {
+        sectionID: "section1",
+        title: "Section 1",
+        content: "Content 1"
+      },
+      {
+        sectionID: "section2",
+        title: "Section 1",
+        content: "Content 1"
+      }
+    ];
   }
 
-  get lastElement() {
-    return document.querySelector("dd:last-child");
-  }
+  _registerOnClickEvent(model) {
+    let sectionDOM = this._getDtById(model);
 
-  get sectionID() {
-    return (
-      parseInt(this.lastElement.previousSibling.previousElementSibling.id) + 1
-    );
-  }
-
-  _registerOnClickEvent(item, id) {
-    item.id = id;
-    item.addEventListener("click", () => {
-      this._closeOpenedItems(item.id);
-      item.classList.add("accordion__title--open");
-      this._handleRelatedContend(item);
+    sectionDOM.addEventListener("click", () => {
+      this._closeOpenedItems(model);
+      this._openSection(sectionDOM);
     });
   }
 
   _addToggleBehavior() {
-    this.dts.forEach((item, index) => {
-      item.classList.add("accordion__title");
-      this._registerOnClickEvent(item, index);
-    });
-
-    this.dds.forEach((item, index) => {
-      item.classList.add("accordion__content");
+    this.items.forEach(item => {
+      this._addContent(item);
     });
     NORRIS_API.getChuckNorris().then(data => {
-      this._addExtraContent(data);
+      this._addContent(data);
     });
   }
 
-  _handleRelatedContend(item) {
+  _openSection(item) {
     const content = item.nextElementSibling;
-    if (this._isContentOpen(item)) {
-      content.classList.toggle("accordion__content--open");
-    }
-  }
-
-  _isContentOpen(item) {
-    return item.classList.contains("accordion__title--open");
+    content.classList.toggle("accordion__content--open");
   }
 
   _closeOpenedItems(id) {
@@ -90,26 +70,26 @@ class Accordion extends HTMLElement {
     });
   }
 
-  _addExtraContent(content) {
+  _addContent(content) {
     const model = this._getSectionModel(content);
-    let response = this._mergeTemplateInSection(model);
-    this.lastElement.insertAdjacentHTML("afterend", response);
-
-    this._registerOnClickEvent(
-      this.lastElement.previousSibling.previousElementSibling,
-      this.sectionID
-    );
+    let section = this._mergeTemplateInSection(model);
+    this.dl.insertAdjacentHTML("afterend", section);
+    this._registerOnClickEvent(model.sectionID);
   }
 
+  _getDtById(id) {
+    return document.getElementById(id);
+  }
   _getSectionModel(response) {
     return {
-      title: "Sabias que ?",
-      content: response.value
+      sectionID: response.sectionID ? response.sectionID : Math.random,
+      title: response.title ? response.title : "Sabias que ? ",
+      content: response.content ? response.content : response.value
     };
   }
 
   _mergeTemplateInSection(section) {
-    return `<dt id=${this.sectionID} class='accordion__title'>${section.title}</dt>
+    return `<dt id='${section.sectionID}' class='accordion__title'>${section.title}</dt>
                 <dd class="accordion__content">
                 <p>${section.content}</p>
                 </dd>
