@@ -51,9 +51,8 @@ class Accordion extends HTMLElement {
     this.items.forEach(item => {
       this._addContent(item);
     });
-    NORRIS_API.getChuckNorris().then(data => {
-      this._addContent(data);
-    });
+
+    NORRIS_API.getChuckNorris().then(data => this._addContent(data));
   }
 
   _openSection(item) {
