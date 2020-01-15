@@ -1,20 +1,17 @@
 @import "base";
 
 .accordion {
-  @media only screen and (max-width: 620px) {
-    width: 90%;
+  @media (max-width: 800px) {
+    width: 80%;
     top: 40%;
   }
+  margin: auto;
   font-family: $base-font-family;
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   color: $default-white;
   -webkit-box-shadow: 0 10px 6px -6px $ligth-gray;
   -moz-box-shadow: 0 10px 6px -6px $ligth-gray;
   box-shadow: 0 10px 6px -6px $ligth-gray;
-  width: 40%;
+  width: 60%;
   dt {
     margin: auto;
   }
