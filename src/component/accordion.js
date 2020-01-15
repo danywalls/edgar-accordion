@@ -57,7 +57,7 @@ class Accordion extends HTMLElement {
   }
 
   _openSection(item) {
-    const content = item.nextElementSibling;
+    let content = item.nextElementSibling;
     content.classList.toggle("accordion__content--open");
   }
 
@@ -72,7 +72,7 @@ class Accordion extends HTMLElement {
 
   _addContent(content) {
     const model = this._getSectionModel(content);
-    let section = this._mergeTemplateInSection(model);
+    const section = this._mergeTemplateInSection(model);
     this.dl.insertAdjacentHTML("afterend", section);
     this._registerOnClickEvent(model.sectionID);
   }
