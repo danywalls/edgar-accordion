@@ -26,12 +26,12 @@ class Accordion extends HTMLElement {
   get items() {
     return [
       {
-        sectionID: "section1",
+        sectionID: Math.random(),
         title: "Section 1",
         content: "Content 1"
       },
       {
-        sectionID: "section2",
+        sectionID: Math.random(),
         title: "Section 1",
         content: "Content 1"
       }
@@ -82,7 +82,7 @@ class Accordion extends HTMLElement {
   }
   _getSectionModel(response) {
     return {
-      sectionID: response.sectionID ? response.sectionID : Math.random,
+      sectionID: response.sectionID ? response.sectionID : Math.random(),
       title: response.title ? response.title : "Sabias que ? ",
       content: response.content ? response.content : response.value
     };
