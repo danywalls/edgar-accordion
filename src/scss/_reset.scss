@@ -1,8 +1,11 @@
-
 *,
 *::before,
 *::after {
-  box-sizing: border-box
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
 }
 
 html,
@@ -16,5 +19,5 @@ dd {
 
 p {
   margin-top: 1em;
-  margin-bottom: 1rem
+  margin-bottom: 1rem;
 }
