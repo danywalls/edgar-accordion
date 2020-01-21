@@ -27,7 +27,7 @@ class Accordion extends HTMLElement {
     return [
       {
         sectionID: Math.random(),
-        title: "how to write to mobile first css",
+        title: "How to write to mobile first css",
         content: "https://zellwk.com/blog/how-to-write-mobile-first-css/"
       },
       {

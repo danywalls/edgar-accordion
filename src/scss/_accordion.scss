@@ -1,19 +1,15 @@
 @import "base";
-
 .accordion {
-  @media (max-width: 800px) {
-    width: 80%;
-    top: 40%;
-  }
-  margin: auto;
   font-family: $base-font-family;
   color: $default-white;
-  -webkit-box-shadow: 0 10px 6px -6px $ligth-gray;
-  -moz-box-shadow: 0 10px 6px -6px $ligth-gray;
-  box-shadow: 0 10px 6px -6px $ligth-gray;
-  width: 60%;
-  dt {
-    margin: auto;
+  dt , dd {
+    margin:0 auto;
+    width: 90%;
+  }
+  @media (min-width: 800px) {
+    dt , dd {
+      width: 40%;
+    }
   }
 
   &__title {
@@ -25,6 +21,7 @@
     text-align: left;
     transition: background-color 0.4s;
     font-weight: $bold;
+    text-align: center;
   }
   &__content {
     overflow: hidden;
@@ -33,6 +30,7 @@
     background-color: $blue-soft;
     transition: height 0.3s, background-color 2s;
     animation: 3s linear;
+    text-align: center;
     height: 0;
     p {
       white-space: nowrap;
