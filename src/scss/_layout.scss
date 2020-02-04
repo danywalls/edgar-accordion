@@ -6,13 +6,21 @@
   background-color: $green;
   display: grid;
   grid-template-rows: 100px auto 40px;
+  grid-template-areas: 
+    "menu"
+    "accordion"
+    "footer";
   .menu{
+    grid-area: "menu";
     display: grid;
     align-items: center;
     justify-items: center;
+    background-color: crimson;
   }
 }
 footer {
+  grid-area: "footer";
   text-align: center;
   padding: 10px;
+  background-color: crimson;
 }
