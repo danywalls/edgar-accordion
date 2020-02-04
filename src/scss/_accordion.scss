@@ -1,17 +1,12 @@
 @import "base";
+edgar-accordion {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
 .accordion {
   font-family: $base-font-family;
-  color: $default-white;
-  dt , dd {
-    margin:0 auto;
-    width: 90%;
-  }
-  @media (min-width: 800px) {
-    dt , dd {
-      width: 40%;
-    }
-  }
-
+  max-width: 431px;
   &__title {
     display: block;
     padding: 15px;
