@@ -1,22 +1,26 @@
 @import "base";
 .container {
+  color: whitesmoke;
   font-family: $base-font-family;
   height: 100%;
-  background-color: lightcoral;
-  width: 100%;
-  text-align: center;
-  position: absolute;
+  background-color: $green;
+  display: grid;
+  grid-template-rows: 100px auto 40px;
+  grid-template-areas: 
+    "menu"
+    "accordion"
+    "footer";
   .menu{
-    > h1 {
-      color: rgb(24, 66, 24);
-      padding-bottom: 15px;
-    }
+    grid-area: "menu";
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    background-color: crimson;
   }
-  
-  .accordion-area {
-    position: relative;
-    width: 100%;
-    top:50%;
-    margin-top: -205px;
-  }
+}
+footer {
+  grid-area: "footer";
+  text-align: center;
+  padding: 10px;
+  background-color: crimson;
 }
