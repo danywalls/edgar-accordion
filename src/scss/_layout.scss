@@ -1,26 +1,28 @@
 @import "base";
+
 .container {
-  color: whitesmoke;
-  font-family: $base-font-family;
-  height: 100%;
-  background-color: $green;
-  display: grid;
-  grid-template-rows: 100px auto 40px;
-  grid-template-areas: 
-    "menu"
-    "accordion"
-    "footer";
-  .menu{
-    grid-area: "menu";
-    display: grid;
-    align-items: center;
-    justify-items: center;
-    background-color: crimson;
-  }
+	color: $default-white;
+	font-family: $base-font-family;
+	height: 100%;
+	background-color: $green;
+	display: grid;
+	grid-template-rows: 100px auto 40px;
+	grid-template-areas:
+		"menu"
+		"accordion"
+		"footer";
+	.menu {
+		grid-area: "menu";
+		display: grid;
+		align-items: center;
+		justify-items: center;
+		background-color: $ligth-pink;
+	}
 }
+
 footer {
-  grid-area: "footer";
-  text-align: center;
-  padding: 10px;
-  background-color: crimson;
+	grid-area: "footer";
+	text-align: center;
+	padding: 10px;
+	background-color: $ligth-pink;
 }
