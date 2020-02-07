@@ -10,7 +10,7 @@ _Note that you will need to have [Node.js](https://nodejs.org) installed._
 
 ## Get started
 
-Install the dependencies.
+Install packages dependencies.
 
 ```bash
 cd edgar-accordion
