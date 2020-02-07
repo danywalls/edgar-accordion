@@ -4,7 +4,7 @@ _Looking for demo ? Go here --> [http://edgar-accordion.surge.sh](http://edgar-a
 
 # edgar-accordion
 
-This project was build project using [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components). You can see full source code at https://github.com/danywalls/edgar-accordion.
+This project was build project using [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components), [Sass](http://sass-lang.com/) and [Parcel](https://parceljs.org).
 
 _Note that you will need to have [Node.js](https://nodejs.org) installed._
 
