@@ -1,46 +1,46 @@
 @import "base";
 edgar-accordion {
-	display: grid;
-	justify-content: center;
-	align-items: center;
-	grid-area: "accordion";
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-area: "accordion";
 }
 .accordion {
-	font-family: $base-font-family;
-	max-width: 431px;
-	display: grid;
-	grid-row-gap: 1px;
-	background-color: $slack-purple-dark;
-	&__title {
-		display: block;
-		padding: 15px;
-		cursor: pointer;
-		background-color: $slack-purple-dark;
-		text-align: left;
-		transition: background-color 0.4s;
-		font-weight: $bold;
-		text-align: center;
-	}
-	&__content {
-		overflow: hidden;
-		margin-left: 0px;
-		padding: 0 15px;
-		background-color: $blue-soft;
-		transition: height 0.3s, background-color 2s;
-		animation: 3s linear;
-		text-align: center;
-		height: 0;
-		p {
-			white-space: nowrap;
-			overflow: hidden;
-			text-overflow: ellipsis;
-		}
-	}
-	&__title--open {
-		background-color: $slack-purple-ligth;
-	}
-	&__content--open {
-		height: 45px;
-		background: $blue-soft-ligth;
-	}
+  font-family: $base-font-family;
+  max-width: 431px;
+  display: grid;
+  grid-row-gap: 1px;
+  background-color: $slack-purple-dark;
+  &__title {
+    display: block;
+    padding: 15px;
+    cursor: pointer;
+    background-color: $slack-purple-dark;
+    text-align: left;
+    transition: background-color 0.4s;
+    font-weight: $bold;
+    text-align: center;
+  }
+  &__content {
+    overflow: hidden;
+    margin-left: 0px;
+    padding: 0 15px;
+    background-color: $blue-soft;
+    transition: height 0.3s, background-color 2s;
+    animation: 3s linear;
+    text-align: center;
+    height: 0;
+    p {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+  &__title--open {
+    background-color: $slack-purple-ligth;
+  }
+  &__content--open {
+    height: 45px;
+    background: $blue-soft-ligth;
+  }
 }

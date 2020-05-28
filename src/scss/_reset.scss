@@ -1,11 +1,11 @@
 *,
 *::before,
 *::after {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 html,
 body {
-	height: 100%;
+  height: 100%;
 }
 
 html,
@@ -13,11 +13,11 @@ body,
 dl,
 dt,
 dd {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 p {
-	margin-top: 1em;
-	margin-bottom: 1rem;
+  margin-top: 1em;
+  margin-bottom: 1rem;
 }
