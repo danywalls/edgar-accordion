@@ -1,3 +1,60 @@
-@import "base";
 @import "reset";
-@import "layout";
+
+
+main {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    box-sizing: border-box;
+    height: 90%;
+}
+footer {
+    height: 10%;
+    text-align: center;
+}
+p {
+    margin: 0;
+}
+dt {
+    margin: 0;
+    background-color: darkgray;
+    padding: 1em;
+    border-bottom: 1px solid red;
+   &:last-of-type {
+    border-bottom: 0;
+   } 
+   width: 200px;
+   cursor: pointer;
+}
+dd:hover {
+    visibility: visible;
+    height: auto;
+    padding: 1em;
+}
+dt + dd {
+    transition: height 0.6s;
+    visibility: hidden;
+    height:  0;
+    background-color: gray;
+    margin:0;
+    padding: 0;
+}
+
+dt:hover + dd{
+    transition: height 0.6s;
+    visibility: visible;
+    height: auto;
+    background-color: gray;
+    padding: 1em;
+    margin:0
+}
+
+dl {
+    border: 1px solid gray;
+    border-radius: 7px;
+    margin: 0 auto;
+    p {
+        width: min-content;
+    }
+    width: fit-content;
+}

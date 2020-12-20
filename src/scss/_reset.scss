@@ -4,10 +4,15 @@
   box-sizing: border-box;
 }
 html,
-body {
-  height: 100%;
+body { 
+    background: linear-gradient(to bottom, purple, rgb(49, 15, 71));
+    height: 100vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction:column;
+    margin: 0;
 }
-
 html,
 body,
 dl,
@@ -17,7 +22,4 @@ dd {
   padding: 0;
 }
 
-p {
-  margin-top: 1em;
-  margin-bottom: 1rem;
-}
+
